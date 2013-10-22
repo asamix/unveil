@@ -43,6 +43,14 @@
 
       loaded = inview.trigger("unveil");
       images = images.not(loaded);
+      if (images.size() == 0){
+          complete();
+      }
+    }
+
+    function complete() {
+        $w.unbind("scroll", unveil);
+        $w.unbind("resize", unveil);
     }
 
     $w.scroll(unveil);
